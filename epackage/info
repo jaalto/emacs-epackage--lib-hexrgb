@@ -17,7 +17,11 @@ Vcs-Password:
 Homepage:
 Wiki: http://www.emacswiki.org/emacs/DrewsElispLibraries
 Commentary:
-Description: <short one line>
- [<Longer description>]
- .
- Note YYYY-MM-DD the code hasn't been touched since YYYY.
+Description: library of RGB color manipulation functions
+ This library provides functions for converting between RGB (red, green,
+ blue) color components and HSV (hue, saturation, value) color components.
+ It helps you convert among Emacs color components (whole numbers from 0
+ through 65535), RGB and HSV floating-point components (0.0 through 1.0),
+ Emacs color-name strings (such as "blue"), and hex RGB color strings (such
+ as "#FC43A7912").
+
