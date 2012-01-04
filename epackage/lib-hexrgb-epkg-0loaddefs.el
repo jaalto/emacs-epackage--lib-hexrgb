@@ -1,9 +1,9 @@
 
 ;;;### (autoloads (hexrgb-blue hexrgb-green hexrgb-red hexrgb-value
 ;;;;;;  hexrgb-saturation hexrgb-hue hexrgb-complement hexrgb-read-color
-;;;;;;  hexrgb-canonicalize-defined-colors-flag) "hexrgb" "../hexrgb.el"
-;;;;;;  (20177 37876))
-;;; Generated autoloads from ../hexrgb.el
+;;;;;;  hexrgb-canonicalize-defined-colors-flag) "../hexrgb" "../hexrgb.el"
+;;;;;;  (20196 52968))
+;;; Generated autoloads from hexrgb.el
 
 (eval-and-compile (defun hexrgb-canonicalize-defined-colors (list) "Copy of LIST with color names canonicalized.\nLIST is a list of color names (strings).\nCanonical names are lowercase, with no whitespace.\nThere are no duplicate names." (let ((tail list) this new) (while tail (setq this (car tail) this (hexrgb-delete-whitespace-from-string (downcase this) 0 (length this))) (unless (member this new) (push this new)) (pop tail)) (nreverse new))) (defun hexrgb-delete-whitespace-from-string (string &optional from to) "Remove whitespace from substring of STRING from FROM to TO.\nIf FROM is nil, then start at the beginning of STRING (FROM = 0).\nIf TO is nil, then end at the end of STRING (TO = length of STRING).\nFROM and TO are zero-based indexes into STRING.\nCharacter FROM is affected (possibly deleted).  Character TO is not." (setq from (or from 0) to (or to (length string))) (with-temp-buffer (insert string) (goto-char (+ from (point-min))) (let ((count from) char) (while (and (not (eobp)) (< count to)) (setq char (char-after)) (if (memq char '(32 9 10)) (delete-char 1) (forward-char 1)) (setq count (1+ count))) (buffer-string)))))
 
@@ -29,7 +29,7 @@ Names are all lowercase, without any spaces.")
 Names are considered duplicates if they are the same when abstracting
 from whitespace and letter case.")
 
-(custom-autoload 'hexrgb-canonicalize-defined-colors-flag "hexrgb" t)
+(custom-autoload 'hexrgb-canonicalize-defined-colors-flag "../hexrgb" t)
 
 (autoload 'hexrgb-read-color "hexrgb" "\
 Read a color name or hex RGB hexadecimal color value #RRRRGGGGBBBB.
@@ -122,4 +122,3 @@ COLOR is a color name or hex RGB string that starts with \"#\".
 \(fn COLOR)" t nil)
 
 ;;;***
-(provide 'lib-hexrgb-epkg-0loaddefs)
