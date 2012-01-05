@@ -1,5 +1,6 @@
 Package: lib-hexrgb
 Section: extensions
+Elpa: marmalade
 License: GPL-2+
 Depends: emacs (>= 23)
 Status: stable
@@ -24,4 +25,3 @@ Description: library of RGB color manipulation functions
  through 65535), RGB and HSV floating-point components (0.0 through 1.0),
  Emacs color-name strings (such as "blue"), and hex RGB color strings (such
  as "#FC43A7912").
-
