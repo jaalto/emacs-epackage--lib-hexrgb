@@ -4,12 +4,12 @@
 ;; Description: Functions to manipulate colors, including RGB hex strings.
 ;; Author: Drew Adams
 ;; Maintainer: Drew Adams
-;; Copyright (C) 2004-2011, Drew Adams, all rights reserved.
+;; Copyright (C) 2004-2012, Drew Adams, all rights reserved.
 ;; Created: Mon Sep 20 22:58:45 2004
 ;; Version: 21.0
-;; Last-Updated: Sat Nov 26 17:33:22 2011 (-0800)
+;; Last-Updated: Thu Jan  5 09:13:12 2012 (-0800)
 ;;           By: dradams
-;;     Update #: 802
+;;     Update #: 807
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el
 ;; Keywords: number, hex, rgb, color, background, frames, display
 ;; Compatibility: GNU Emacs: 20.x, 21.x, 22.x, 23.x
@@ -82,6 +82,9 @@
 ;;
 ;;; Change Log:
 ;;
+;; 2012/01/05 dadams
+;;     hexrgb-complement: Added optional arg MSG-P.
+;;     Some doc-string cleanup.
 ;; 2011/11/26 dadams
 ;;     hexrgb-read-color: Changed arg order to match vanilla Emacs read-color.  Added MSGP.
 ;;     *** THIS IS AN INCOMPATIBLE CHANGE.  IF YOU USE THIS FUNCTION THEN UPDATE YOUR CODE. ***
@@ -380,15 +383,17 @@ returned; otherwise, t is returned."
       (and laxp (string-match "^\\([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]\\)+$" color) t)))
 
 ;;;###autoload
-(defun hexrgb-complement (color)
-  "Return the color that is the complement of COLOR."
-  (interactive (list (hexrgb-read-color)))
+(defun hexrgb-complement (color &optional msg-p)
+  "Return the color that is the complement of COLOR.
+Non-interactively, non-nil optional arg MSG-P means show a message
+with the complement."
+  (interactive (list (hexrgb-read-color) t))
   (setq color  (hexrgb-color-name-to-hex color))
   (let ((red    (hexrgb-red color))
         (green  (hexrgb-green color))
         (blue   (hexrgb-blue color)))
     (setq color  (hexrgb-rgb-to-hex (- 1.0 red) (- 1.0 green) (- 1.0 blue))))
-  (when (interactive-p) (message "Complement: `%s'" color))
+  (when msg-p (message "Complement: `%s'" color))
   color)
 
 ;;;###autoload
