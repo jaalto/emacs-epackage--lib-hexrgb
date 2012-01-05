@@ -18,6 +18,8 @@ Vcs-Password:
 Homepage:
 Wiki: http://www.emacswiki.org/emacs/DrewsElispLibraries
 Commentary:
+X-Development:
+  2012-01-05 Upstream email confirmed
 Description: library of RGB color manipulation functions
  This library provides functions for converting between RGB (red, green,
  blue) color components and HSV (hue, saturation, value) color components.
