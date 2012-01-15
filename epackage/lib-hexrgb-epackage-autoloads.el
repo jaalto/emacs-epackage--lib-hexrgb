@@ -29,4 +29,4 @@
 (autoload 'hexrgb-approx-equal                  "hexrgb" "" nil)
 (autoload 'hexrgb-color-value-to-float          "hexrgb" "" nil)
 (autoload 'hexrgb-float-to-color-value          "hexrgb" "" nil)
-(provide 'lib-hexrgb-epkg-autoloads)
+(provide 'lib-hexrgb-epackage-autoloads)
